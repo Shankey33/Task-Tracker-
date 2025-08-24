@@ -1,255 +1,162 @@
 
-.completed-task {
-    text-decoration: line-through;
-    color: #888;
+:root {
+  --primary-bg: #000;
+  --secondary-bg: #1e1e1e;
+  --accent-bg: #333;
+  --text-white: #fff;
+  --shadow: 0 0 10px rgba(0,0,0,0.1);
+  --transition: all 0.3s ease;
+  --border-radius: 10px;
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+.completed-task { text-decoration: line-through; color: #888; }
+.hide, .hide2 { display: none !important; }
+
+.Header-h2, .task-list {
+  width: 90%;
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: var(--primary-bg);
+  color: var(--text-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
 }
 
+.Header-h2 { text-align: center; padding: 10px; }
 
-.Header-h2{
-    text-align: center;
-    margin: 20px;
-    color: white;
-    background-color: black;
-    padding: 10px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+.task-list { 
+  padding: 20px; 
+  border: 2px solid var(--primary-bg); 
+  position: relative; 
 }
 
-.task-list{
-    width: 90%;
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 2px solid black;
-    border-radius: 10px;
-    background-color: #000000;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    color: white;
-    position: relative;
+.container-task {
+  background-color: var(--secondary-bg);
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  transition: var(--transition);
 }
 
-
-
-.container-task{
-    background-color: #1e1e1e;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
-}   
-
-.container-task:hover{
-    background-color: #333333;
-    cursor: pointer;
-    transform: scale(1.02);
-    transition: all 0.3s ease;
+.container-task:hover { 
+  background-color: var(--accent-bg); 
+  cursor: pointer; 
+  transform: scale(1.02); 
 }
 
-.container-addtask{
-    font-weight: 700;
-    font-size: x-large;
-    display: inline-block;
-    padding: 6px 12px 6px 12px;
-    background-color: #000000;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    color: rgb(255, 255, 255);
-    border: #333333 solid 2px;
-    border-radius: 100px;
-    margin-top: 40px;
+.container-addtask, .remove-completed-task {
+  background-color: var(--primary-bg);
+  color: var(--text-white);
+  border: 2px solid var(--accent-bg);
+  border-radius: 100px;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
 }
 
-.container-addtask.hide{
-    display: none;
+.container-addtask {
+  font-weight: 700;
+  font-size: x-large;
+  display: inline-block;
+  padding: 6px 12px;
+  margin-top: 40px;
 }
 
-.container-addtask:hover{
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    cursor: pointer;
-    transform: scale(1.1);
-    transition: all 0.3s ease;
+.container-addtask:hover { 
+  background-color: var(--text-white); 
+  color: var(--primary-bg); 
+  transform: scale(1.1); 
 }
 
-.hide{
-    display: none !important; 
+.remove-completed-task {
+  position: absolute;
+  bottom: 26px;
+  right: 10px;
+  padding: 6px 12px;
+  font-weight: 500;
+  font-size: 14px;
 }
 
-.hide2{
-    display: none !important; 
+.remove-completed-task:hover { 
+  background-color: var(--text-white); 
+  color: var(--primary-bg); 
+  transform: scale(1.05); 
 }
 
-.container-addTaskReveal{
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 60px;
-    margin-bottom: 10px;
-    color: white;
-    margin-left: auto;
-    margin-right: auto;
-    align-items: center;
+.container-addTaskReveal {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 60px auto 10px;
+  color: var(--text-white);
+  align-items: center;
 }
 
-.container-addTaskReveal input{
-   background-color: #333333;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    color: white;
-    width: 100%;
-    max-width: 300px;
-    min-width: 200px;
-    font-size: 16px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    outline: none;
-    transition: all 0.3s ease;
+.container-addTaskReveal input {
+  background-color: var(--accent-bg);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  color: var(--text-white);
+  width: 100%;
+  max-width: 300px;
+  min-width: 200px;
+  font-size: 16px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  outline: none;
+  transition: var(--transition);
 }
 
-.container-addTaskReveal input:focus{
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    transform: scale(1.02);
+.container-addTaskReveal input:focus { 
+  box-shadow: 0 0 10px rgba(0,0,0,0.3); 
+  transform: scale(1.02); 
 }
 
-.container-addTaskReveal p{
-    padding: 10px 20px;
-    background-color: #333333;
-    color: rgb(255, 255, 255);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-    font-weight: 700;
+.container-addTaskReveal p {
+  padding: 10px 20px;
+  background-color: var(--accent-bg);
+  color: var(--text-white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  transition: var(--transition);
 }
 
-.container-addTaskReveal p:hover{
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+.container-addTaskReveal p:hover { 
+  background-color: var(--text-white); 
+  color: var(--primary-bg); 
+  transform: scale(1.05); 
+  box-shadow: 0 0 10px rgba(0,0,0,0.3); 
 }
 
-.remove-completed-task{
-    position: absolute;
-    bottom: 33px;
-    right: 10px;
-    padding: 6px 12px 6px 12px;
-    background-color: #000000;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    color: rgb(255, 255, 255);
-    border: #333333 solid 2px;
-    border-radius: 100px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 14px;
-}
-
-.remove-completed-task:hover{
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    transform: scale(1.05);
-    transition: all 0.3s ease;
-}
-
-/* Media Queries for Responsiveness */
 @media (min-width: 769px) {
-    .container-addTaskReveal {
-        flex-direction: row;
-        gap: 20px;
-    }
+  .container-addTaskReveal { flex-direction: row; gap: 20px; }
 }
 
 @media (max-width: 768px) {
-    .Header-h2 {
-        width: 95%;
-        margin: 15px auto;
-        padding: 8px;
-        font-size: 1.2rem;
-    }
-    
-    .task-list {
-        width: 95%;
-        margin: 15px auto;
-        padding: 15px;
-    }
-    
-    .container-task {
-        padding: 8px;
-        margin: 8px 0;
-    }
-    
-    .container-addtask {
-        font-size: large;
-        padding: 5px 10px;
-        margin-top: 30px;
-    }
-    
-    .container-addTaskReveal {
-        margin-top: 40px;
-        gap: 12px;
-    }
-    
-    .container-addTaskReveal input {
-        width: 100%;
-        max-width: 250px;
-        padding: 8px;
-        font-size: 14px;
-    }
-    
-    .container-addTaskReveal p {
-        padding: 8px 16px;
-        font-size: 14px;
-    }
-    
-    .remove-completed-task {
-        position: static;
-        margin-top: 15px;
-        width: 100%;
-        text-align: center;
-        font-size: 12px;
-        padding: 8px 12px;
-    }
+  .Header-h2, .task-list { width: 95%; margin: 15px auto; }
+  .Header-h2 { padding: 8px; font-size: 1.2rem; }
+  .task-list { padding: 15px; }
+  .container-task { padding: 8px; margin: 8px 0; }
+  .container-addtask { font-size: large; padding: 5px 10px; margin-top: 30px; }
+  .container-addTaskReveal { margin-top: 40px; gap: 12px; }
+  .container-addTaskReveal input { max-width: 250px; padding: 8px; font-size: 14px; }
+  .container-addTaskReveal p { padding: 8px 16px; font-size: 14px; }
+  .remove-completed-task { position: static; margin-top: 15px; width: 100%; text-align: center; font-size: 12px; padding: 8px 12px; }
 }
 
 @media (max-width: 480px) {
-    .Header-h2 {
-        width: 98%;
-        margin: 10px auto;
-        padding: 6px;
-        font-size: 1rem;
-    }
-    
-    .task-list {
-        width: 98%;
-        margin: 10px auto;
-        padding: 10px;
-    }
-    
-    .container-addTaskReveal {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .container-addTaskReveal input {
-        max-width: 200px;
-    }
-    
-    .container-task:hover {
-        transform: none;
-    }
-    
-    .container-addtask:hover {
-        transform: scale(1.05);
-    }
+  .Header-h2, .task-list { width: 98%; margin: 10px auto; }
+  .Header-h2 { padding: 6px; font-size: 1rem; }
+  .task-list { padding: 10px; }
+  .container-addTaskReveal { flex-direction: column; gap: 10px; }
+  .container-addTaskReveal input { max-width: 200px; }
+  .container-task:hover { transform: none; }
+  .container-addtask:hover { transform: scale(1.05); }
 }

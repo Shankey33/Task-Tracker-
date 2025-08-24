@@ -1,8 +1,11 @@
 import Task from "./Task"
 import AddTask from "./AddTask"
 import RemoveCompTask from "./RemoveCompTask"
+import {useState} from 'react'
 
 function TaskList({tasks, onAddTask, toggleTask, delTask}){
+    const [show, setShow] = useState(false);
+
     return(
         <div className="task-list">
         {tasks.map(task => {
@@ -10,8 +13,8 @@ function TaskList({tasks, onAddTask, toggleTask, delTask}){
                 <Task key={task.id} task={task} toggleTask={toggleTask}  />
             )
         })}
-        <AddTask onAddTask={onAddTask}/>
-        <RemoveCompTask delTask={delTask}/>
+        <AddTask onAddTask={onAddTask} show={show} setShow={setShow}/>
+        <RemoveCompTask delTask={delTask} show={show}/>
         </div>
     )
 }

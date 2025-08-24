@@ -1,11 +1,9 @@
-import React from "react";
-import { useState } from "react";
+import React, {useState} from "react";
 import '../App.css'
 
-function AddTask({onAddTask}){
-    const [show, setShow] = useState(false);
-    const [input, setInput] = useState('');
 
+function AddTask({onAddTask, show, setShow}) {
+    const [input, setInput] = useState('');
     const handleAdd = () => setShow(true);
 
     const onAdd = (e) => {

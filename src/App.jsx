@@ -1,10 +1,17 @@
 import Header from "./Components/Header"
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import TaskList from "./Components/TaskList"
 import './App.css';
 
 function App() {
-  const [tasks, setTask] = useState([])
+  const [tasks, setTask] = useState(() =>{
+    const savedTask = localStorage.getItem('tasks');
+    return savedTask ? JSON.parse(savedTask) : [];
+  })
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks])
 
   const addTask = (input) => {
     const newTask = {id: Date.now(), text: input, completed: false}
