@@ -135,10 +135,6 @@
   box-shadow: 0 0 10px rgba(0,0,0,0.3); 
 }
 
-@media (min-width: 769px) {
-  .container-addTaskReveal { flex-direction: row; gap: 20px; }
-}
-
 @media (max-width: 768px) {
   .Header-h2, .task-list { width: 95%; margin: 15px auto; }
   .Header-h2 { padding: 8px; font-size: 1.2rem; }
@@ -149,14 +145,4 @@
   .container-addTaskReveal input { max-width: 250px; padding: 8px; font-size: 14px; }
   .container-addTaskReveal p { padding: 8px 16px; font-size: 14px; }
   .remove-completed-task { position: static; margin-top: 15px; width: 100%; text-align: center; font-size: 12px; padding: 8px 12px; }
-}
-
-@media (max-width: 480px) {
-  .Header-h2, .task-list { width: 98%; margin: 10px auto; }
-  .Header-h2 { padding: 6px; font-size: 1rem; }
-  .task-list { padding: 10px; }
-  .container-addTaskReveal { flex-direction: column; gap: 10px; }
-  .container-addTaskReveal input { max-width: 200px; }
-  .container-task:hover { transform: none; }
-  .container-addtask:hover { transform: scale(1.05); }
 }
